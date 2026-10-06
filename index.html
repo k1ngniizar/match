@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f5f3eb" />
+    <title>Gather — make a group</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="wordmark">
+        <span class="mark" aria-hidden="true">g</span> gather
+      </div>
+      <div class="top-note">Good things happen in groups</div>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">A little mix, a little chance</p>
+        <h1 id="page-title">
+          Make room<br />for <span>new connections.</span>
+        </h1>
+        <p class="intro-copy">
+          Bring your people together. We’ll make the pairs, then you can shape
+          each group until it feels right.
+        </p>
+      </section>
+
+      <div class="workspace">
+        <section class="setup" aria-labelledby="people-title">
+          <div class="section-heading">
+            <h2 id="people-title">The people</h2>
+            <span class="count" id="people-count">0 names</span>
+          </div>
+          <div class="input-shell">
+            <textarea
+              id="names"
+              aria-label="Names to group"
+              placeholder="Add one name per line&#10;Avery&#10;Jordan&#10;Sam&#10;Riley"
+            ></textarea>
+            <div class="field-foot">
+              <span>One name per line</span>
+              <button type="button" id="sample-button">Try a sample</button>
+            </div>
+          </div>
+          <div class="freq">
+            <span>Grouping frequency</span>
+            <div class="freq-actn">
+              <button type="button" class="inc-freq">+</button>
+              <span class="freq-count">2</span>
+              <button type="button" class="red-freq">-</button>
+            </div>
+          </div>
+          <button class="primary" type="button" id="make-groups">
+            <span class="primary-icon" aria-hidden="true">↗</span> Make groups
+          </button>
+          <p class="hint">
+            Groups start as pairs. Use the plus or minus on any group to move
+            someone in or out.
+          </p>
+          <p class="message" id="message" role="status" aria-live="polite"></p>
+        </section>
+
+        <section class="results" aria-labelledby="results-title">
+          <div class="results-head">
+            <div>
+              <h2 id="results-title">Your groups</h2>
+              <p class="results-meta" id="results-meta">Ready when you are</p>
+            </div>
+            <button class="text-button" type="button" id="reshuffle" hidden>
+              <span aria-hidden="true">⤨</span> Shuffle
+            </button>
+            <button class="text-button" type="button" id="copy-results" hidden>
+              <span aria-hidden="true">▢</span> Copy
+            </button>
+          </div>
+          <div id="group-list" class="group-list" aria-live="polite">
+            <div class="empty-state">
+              <span class="empty-symbol" aria-hidden="true">＋</span>
+              <p>
+                Your groups will appear here. Add some names and let chance do
+                the introductions.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
