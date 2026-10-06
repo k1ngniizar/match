@@ -42,10 +42,19 @@ button {
 .topbar {
   min-height: 68px;
   display: flex;
+  position: sticky;
+  top: 0;
   align-items: center;
   justify-content: space-between;
   padding: 0 clamp(20px, 5vw, 72px);
   border-bottom: 1px solid rgb(32 42 36 / 12%);
+  background-color: var(--paper);
+  background-image: repeating-linear-gradient(
+    135deg,
+    transparent 0 22px,
+    rgb(39 92 72 / 3%) 22px 23px
+  );
+  z-index: 5;
 }
 
 .wordmark {
@@ -55,17 +64,20 @@ button {
   color: var(--green-dark);
   font-weight: 750;
   letter-spacing: 0.02em;
+  /* border: 1px solid pink; */
 }
 
 .mark {
-  width: 27px;
-  height: 27px;
+  width: 35px;
+  height: 35px;
   display: grid;
   place-items: center;
   border-radius: 50%;
   background: var(--lime);
   font-family: var(--serif);
   font-size: 17px;
+  padding: 3px;
+  border: 0.5px solid var(--green-dark);
 }
 
 .top-note {
@@ -123,7 +135,7 @@ h1 span {
   max-width: 470px;
   margin: 18px 0 0;
   color: var(--muted);
-  font-size: 15px;
+  font-size: 12px;
   line-height: 1.65;
 }
 
@@ -230,11 +242,21 @@ textarea::placeholder {
 }
 
 .freq button {
-  border: 1px solid var(--muted);
-  padding: 5px 10px;
+  width: 29px;
+  height: 29px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: transparent;
+  color: var(--green);
+  cursor: pointer;
+  font-size: 18px;
+  transition:
+    background 0.15s,
+    border-color 0.15s;
 }
+
 .freq button:hover {
-  border: 1px solid var(--green-dark);
+  border: 1px solid var(--green);
 }
 
 .primary {
@@ -274,10 +296,11 @@ textarea::placeholder {
 }
 
 .hint {
-  margin: 13px 0 0;
+  margin: 5px 0 0;
   color: var(--muted);
   font-size: 12px;
   line-height: 1.55;
+  padding: 0 5px;
 }
 
 .results {
@@ -489,6 +512,9 @@ textarea::placeholder {
 }
 
 @media (max-width: 460px) {
+  .fullmark {
+    display: none;
+  }
   .topbar {
     min-height: 58px;
     padding-inline: 20px;

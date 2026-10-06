@@ -4,13 +4,31 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#f5f3eb" />
-    <title>Gather — make a group</title>
+    <meta content="Create Group" property="og:title" />
+    <meta property="og:type" content="website" />
+    <meta
+      content="https://res.cloudinary.com/dh4kjwb0h/image/upload/v1791313739/Screenshot_2026-10-06_195233_ngztws.png"
+      property="og:image"
+    />
+    <meta property="og:url" content="https://ebenezer-west.vercel.app" />
+    <meta
+      name="description"
+      content="Create groups let's you group people randomly whether it's just for a
+          fun game, to share responsibilities, class grouping, debate teams, etc."
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="https://res.cloudinary.com/dh4kjwb0h/image/upload/v1791313737/Screenshot_2026-10-06_195935_qixj2d.png"
+    />
+    <title>Create groups</title>
     <link rel="stylesheet" href="./index.css" />
   </head>
   <body>
     <header class="topbar">
       <div class="wordmark">
-        <span class="mark" aria-hidden="true">g</span> gather
+        <span class="mark" aria-hidden="true">CG</span>
+        <span class="fullmark">Create Groups</span>
       </div>
       <div class="top-note">Good things happen in groups</div>
     </header>
@@ -19,11 +37,12 @@
       <section class="intro" aria-labelledby="page-title">
         <p class="eyebrow">A little mix, a little chance</p>
         <h1 id="page-title">
-          Make room<br />for <span>new connections.</span>
+          <span>Create groups.</span>
         </h1>
         <p class="intro-copy">
-          Bring your people together. We’ll make the pairs, then you can shape
-          each group until it feels right.
+          Create groups let's you group people randomly whether it's just for a
+          fun game, to share responsibilities, class grouping, debate teams,
+          etc.
         </p>
       </section>
 
@@ -47,18 +66,18 @@
           <div class="freq">
             <span>Grouping frequency</span>
             <div class="freq-actn">
-              <button type="button" class="inc-freq">+</button>
-              <span class="freq-count">2</span>
-              <button type="button" class="red-freq">-</button>
+              <button type="button" class="inc-freq" id="inc-freq">+</button>
+              <span class="freq-count" id="freq-count"></span>
+              <button type="button" class="red-freq" id="red-freq">-</button>
             </div>
           </div>
+          <p class="hint">
+            Groups start as pairs. Use the plus or minus to increase pairing per
+            group.
+          </p>
           <button class="primary" type="button" id="make-groups">
             <span class="primary-icon" aria-hidden="true">↗</span> Make groups
           </button>
-          <p class="hint">
-            Groups start as pairs. Use the plus or minus on any group to move
-            someone in or out.
-          </p>
           <p class="message" id="message" role="status" aria-live="polite"></p>
         </section>
 

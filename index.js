@@ -1,3 +1,6 @@
+const freqCount = document.querySelector("#freq-count");
+const incFreqBtn = document.getElementById("#inc-freq");
+const redFreqBtn = document.getElementById("#red-freq");
 const namesInput = document.querySelector("#names");
 const groupList = document.querySelector("#group-list");
 const peopleCount = document.querySelector("#people-count");
@@ -6,6 +9,29 @@ const message = document.querySelector("#message");
 const reshuffleButton = document.querySelector("#reshuffle");
 const copyButton = document.querySelector("#copy-results");
 let groups = [];
+let frequency = 2;
+
+freqCount.textContent = `${frequency}`;
+
+function setFrequency(incOrRed) {
+  if (incOrRed === "inc") {
+    message.textContent = "";
+    frequency++;
+    console.log(frequency);
+    freqCount.textContent = frequency;
+    return;
+  }
+
+  if (incOrRed === "red") {
+    if (frequency === 2) {
+      message.textContent = "Frequency cannot be less than 2";
+      return;
+    }
+    frequency--;
+    freqCount.textContent = frequency;
+    return;
+  }
+}
 
 function readNames() {
   return namesInput.value
@@ -44,8 +70,8 @@ function makeGroups() {
 
   const shuffledPeople = shuffle(people);
   groups = [];
-  for (let index = 0; index < shuffledPeople.length; index += 2) {
-    groups.push(shuffledPeople.slice(index, index + 2));
+  for (let index = 0; index < shuffledPeople.length; index += frequency) {
+    groups.push(shuffledPeople.slice(index, index + frequency));
   }
   renderGroups();
 }
@@ -129,12 +155,18 @@ function renderGroups() {
     addButton.addEventListener("click", () => movePerson(index, "add"));
     actions.append(removeButton, addButton);
 
-    card.append(top, people, actions);
+    card.append(top, people);
     groupList.append(card);
   });
 }
 
 namesInput.addEventListener("input", updateCount);
+document
+  .querySelector("#inc-freq")
+  .addEventListener("click", () => setFrequency("inc"));
+document
+  .querySelector("#red-freq")
+  .addEventListener("click", () => setFrequency("red"));
 document.querySelector("#make-groups").addEventListener("click", makeGroups);
 document.querySelector("#sample-button").addEventListener("click", () => {
   namesInput.value =
